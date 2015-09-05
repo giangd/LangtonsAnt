@@ -61,7 +61,6 @@ class Die {
       ellipse(x+5, y+5, x+10, y+10);
       ellipse(x+15, y+15, x+20, y+20);
     } else if (value == 4) {
-      ellipse(x+10, y+10, x+15, y+15);
       ellipse(x+5, y+5, x+10, y+10);
       ellipse(x+15, y+5, x+20, y+10);
       ellipse(x+15, y+15, x+20, y+20);
