@@ -12,6 +12,7 @@ void setup() {
 
 void draw() {
   background(136, 225, 247);
+  background(106,184,250);
   
   for (int x=bob.wh/2; x<width; x+=50) {
     for (int y=bob.wh/2; y<height-bob.wh*2; y+=50) {
