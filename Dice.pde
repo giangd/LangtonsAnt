@@ -3,7 +3,7 @@ int total;
 Die bob = new Die();
 
 void setup() {
-  size(1500, 500);
+  size(1000, 500);
   noStroke();
   textAlign(CENTER,CENTER);
   ellipseMode(CORNERS); //helps out with copying from gimp
