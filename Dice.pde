@@ -22,7 +22,7 @@ void draw() {
   }
   
   textSize(35);
-  text("Total: " + total, width/2, height-40);
+  text("Total: " + total, width/2, height-80);
   //total = 0;
 }
 
