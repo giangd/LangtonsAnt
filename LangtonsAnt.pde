@@ -4,23 +4,23 @@
   3
 */
 
-Rectangle rect = new Rectangle(-100, 0);
-Ant ant;
+Rectangle rect2 = new Rectangle(-100, 0);
+Ant ant2;
 ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
 
 void setup() {
   size(800, 800);
   noStroke();
-  for (int y = 0; y < height; y += rect.wh) {
-    for (int x = 0; x < width; x += rect.wh) {
+  for (int y = 0; y < height; y += rect2.wh) {
+    for (int x = 0; x < width; x += rect2.wh) {
       rects.add(new Rectangle(x, y));
     }
   }
-  ant = new Ant(width/2, height/2);
+  ant2 = new Ant(width/2, height/2);
 }
 
 void draw() {
-  ant.display(); //just for rect to check for ant
+  ant2.display(); //just for rect to check for ant
 
   for (int i = 0; i < rects.size(); i ++) {
     Rectangle rectPlaceHolder = rects.get(i);
@@ -28,8 +28,8 @@ void draw() {
     rectPlaceHolder.display();
   }
   
-  ant.move();
-  ant.display();
+  ant2.move();
+  ant2.display();
 }
 
 class Rectangle {
