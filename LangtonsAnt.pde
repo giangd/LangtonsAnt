@@ -58,7 +58,7 @@ class Rectangle {
   }
 
   void moveAnt() {
-    if (get(x,y) == ant.myColor) {
+    if (dist(x,y,ant.x,ant.y) == 0) {
       //println(dist(x,y,ant.x,ant.y));
       if (myColor == defaultColor) {
         ant.dir += 1;
