@@ -20,15 +20,15 @@ public class LangtonsAnt extends PApplet {
   3
 */
 
-Rectangle rect = new Rectangle(-100, 0);
+Rectangle rect2 = new Rectangle(-100, 0);
 Ant ant;
 ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
 
 public void setup() {
-  size(800, 800);
+  size(800, 500);
   noStroke();
-  for (int y = 0; y < height; y += rect.wh) {
-    for (int x = 0; x < width; x += rect.wh) {
+  for (int y = 0; y < height; y += rect2.wh) {
+    for (int x = 0; x < width; x += rect2.wh) {
       rects.add(new Rectangle(x, y));
     }
   }
@@ -36,6 +36,7 @@ public void setup() {
 }
 
 public void draw() {
+  background(0);
   ant.display(); //just for rect to check for ant
 
   for (int i = 0; i < rects.size(); i ++) {
@@ -46,6 +47,19 @@ public void draw() {
   
   ant.move();
   ant.display();
+}
+
+public void keyPressed() {
+  for (int i = rects.size()-1; i >= 0; i --) {
+    rects.remove(i);
+  }
+  ant = new Ant(width/2, height/2);
+  for (int y = 0; y < height; y += rect2.wh) {
+    for (int x = 0; x < width; x += rect2.wh) {
+      rects.add(new Rectangle(x, y));
+    }
+  }
+  
 }
 
 class Rectangle {
@@ -60,7 +74,8 @@ class Rectangle {
   }
 
   public void moveAnt() {
-    if (get(x+wh/2, y+wh/2) == ant.myColor) {
+    if (dist(x,y,ant.x,ant.y) == 0) {
+      //println(dist(x,y,ant.x,ant.y));
       if (myColor == defaultColor) {
         ant.dir += 1;
         //myColor = color(random(255),random(255),random(255));
@@ -77,10 +92,6 @@ class Rectangle {
     }
   }
 
-  public void test() {
-    if (get(x+wh/2, y+wh/2) == ant.myColor) {
-    }
-  }
   public void display() {
     fill(myColor);
     rect(x, y, wh, wh);
@@ -90,7 +101,7 @@ class Rectangle {
 class Ant {
   int x, y, dir;
   int wh = 10;
-  int myColor = color(255, 0, 0);
+  int myColor = color(255);
 
   Ant(int tempX, int tempY) {
     x = tempX;

@@ -4,15 +4,15 @@
   3
 */
 
-Rectangle rect = new Rectangle(-100, 0);
+Rectangle rect2 = new Rectangle(-100, 0);
 Ant ant;
 ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
 
 void setup() {
-  size(800, 800);
+  size(800, 500);
   noStroke();
-  for (int y = 0; y < height; y += rect.wh) {
-    for (int x = 0; x < width; x += rect.wh) {
+  for (int y = 0; y < height; y += rect2.wh) {
+    for (int x = 0; x < width; x += rect2.wh) {
       rects.add(new Rectangle(x, y));
     }
   }
@@ -20,6 +20,7 @@ void setup() {
 }
 
 void draw() {
+  background(0);
   ant.display(); //just for rect to check for ant
 
   for (int i = 0; i < rects.size(); i ++) {
@@ -30,6 +31,19 @@ void draw() {
   
   ant.move();
   ant.display();
+}
+
+void keyPressed() {
+  for (int i = rects.size()-1; i >= 0; i --) {
+    rects.remove(i);
+  }
+  ant = new Ant(width/2, height/2);
+  for (int y = 0; y < height; y += rect2.wh) {
+    for (int x = 0; x < width; x += rect2.wh) {
+      rects.add(new Rectangle(x, y));
+    }
+  }
+  
 }
 
 class Rectangle {
@@ -44,7 +58,8 @@ class Rectangle {
   }
 
   void moveAnt() {
-    if (get(x+wh/2, y+wh/2) == ant.myColor) {
+    if (dist(x,y,ant.x,ant.y) == 0) {
+      //println(dist(x,y,ant.x,ant.y));
       if (myColor == defaultColor) {
         ant.dir += 1;
         //myColor = color(random(255),random(255),random(255));
@@ -61,10 +76,6 @@ class Rectangle {
     }
   }
 
-  void test() {
-    if (get(x+wh/2, y+wh/2) == ant.myColor) {
-    }
-  }
   void display() {
     fill(myColor);
     rect(x, y, wh, wh);
@@ -74,7 +85,7 @@ class Rectangle {
 class Ant {
   int x, y, dir;
   int wh = 10;
-  color myColor = color(255, 0, 0);
+  color myColor = color(255);
 
   Ant(int tempX, int tempY) {
     x = tempX;
