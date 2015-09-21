@@ -5,7 +5,7 @@
 */
 
 Rectangle rect2 = new Rectangle(-100, 0);
-Ant ant2;
+Ant ant;
 ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
 
 void setup() {
@@ -16,11 +16,11 @@ void setup() {
       rects.add(new Rectangle(x, y));
     }
   }
-  ant2 = new Ant(width/2, height/2);
+  ant = new Ant(width/2, height/2);
 }
 
 void draw() {
-  ant2.display(); //just for rect to check for ant
+  ant.display(); //just for rect to check for ant
 
   for (int i = 0; i < rects.size(); i ++) {
     Rectangle rectPlaceHolder = rects.get(i);
@@ -28,8 +28,8 @@ void draw() {
     rectPlaceHolder.display();
   }
   
-  ant2.move();
-  ant2.display();
+  ant.move();
+  ant.display();
 }
 
 class Rectangle {
