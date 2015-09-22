@@ -25,7 +25,7 @@ Ant ant;
 ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
 
 public void setup() {
-  size(800, 500);
+  size(680, 480); //has to be even and divisible by 10 (width/2 and rectangle height)
   noStroke();
   for (int y = 0; y < height; y += rect2.wh) {
     for (int x = 0; x < width; x += rect2.wh) {
@@ -33,6 +33,7 @@ public void setup() {
     }
   }
   ant = new Ant(width/2, height/2);
+  frameRate(800);
 }
 
 public void draw() {
@@ -47,6 +48,7 @@ public void draw() {
   
   ant.move();
   ant.display();
+  println(frameRate);
 }
 
 public void keyPressed() {
