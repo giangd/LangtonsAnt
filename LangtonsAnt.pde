@@ -4,6 +4,7 @@
   3
 */
 
+//hi
 Rectangle rect2 = new Rectangle(-100, 0);
 Ant ant;
 ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
